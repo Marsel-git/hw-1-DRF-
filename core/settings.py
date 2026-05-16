@@ -40,6 +40,8 @@ INSTALLED_APPS = [
 
     #rest
     "rest_framework",
+    "rest_framework_simplejwt.token_blacklist",
+    "drf_yasg",
     
     #app
     "app.games",
@@ -146,4 +148,10 @@ REST_FRAMEWORK = {
         "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),
 }
+
+SIMPLE_JWT = {
+    'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
+    'BLACKLIST_AFTER_ROTATION': True,
+}
+
 AUTH_USER_MODEL = "user.User"

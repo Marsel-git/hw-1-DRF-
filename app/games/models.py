@@ -51,7 +51,7 @@ class Games(models.Model):
         verbose_name='Дата создание'
     )
     genre = models.ForeignKey(
-        Genre, on_delete=models.SET_NULL,
+        Genre, on_delete=models.CASCADE,
         null=True,
         related_name='games'
     )

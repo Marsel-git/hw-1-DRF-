@@ -11,6 +11,8 @@ from app.games.seralisers import GamesSerializer, GenreSerializer
 from app.filters import GamesFilter
 from app.paginations import GamePagination
 
+
+
 class GamesListAPIView(ListAPIView):
     queryset = Games.objects.select_related("genre").all() 
     serializer_class = GamesSerializer
@@ -26,4 +28,3 @@ class GameDetailAPIView(RetrieveAPIView):
 class GenreListAPIView(ListAPIView):
     queryset = Genre.objects.all()
     serializer_class = GenreSerializer
-    
