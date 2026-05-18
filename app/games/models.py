@@ -50,6 +50,10 @@ class Games(models.Model):
         auto_now_add=True,
         verbose_name='Дата создание'
     )
+    updated_at = models.DateTimeField(
+        auto_now=True,
+        verbose_name='Дата обновления'
+    )
     genre = models.ForeignKey(
         Genre, on_delete=models.CASCADE,
         null=True,
@@ -58,6 +62,13 @@ class Games(models.Model):
     image = models.ImageField(
         upload_to='covers/', 
         blank=True, null=True
+    )
+    creator = models.ForeignKey(
+        'user.User',
+        on_delete=models.CASCADE,
+        related_name='created_games',
+        null=True,
+        blank=True
     )
 
     def __str__(self):
