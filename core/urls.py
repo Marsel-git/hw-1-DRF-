@@ -19,6 +19,7 @@ schema_view = get_schema_view(
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/games/', include('app.games.urls')),
+    path('api/games/', include('app.reviews.urls')),
     path('api/', include('WEB_SITE.urls')),
     path('api/user/', include('app.user.urls')),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
